@@ -49,6 +49,7 @@ $rows=$pdo->query($sql)->fetchAll();
         <td>手機</td>
         <td>生日</td>
         <td>註冊日期</td>
+        <td>操作</td>
     </tr>
 
 <?php
@@ -62,8 +63,13 @@ foreach($rows as $row){
     echo "   <td>". $row['tel']. "</td>";
     echo "   <td>". $row['birthday']. "</td>";
     echo "   <td>". $row['create_time']. "</td>";
-
-      
+    echo "   <td>";
+    echo "<a href='edit_user.php?user=".$row['id']."'><button>編輯</button></a>";
+    echo "<a href='del_user.php?user=".$row['id']."'><button>刪除</button></a>";
+    "</td>";
+    echo "</td>";
+    echo "</tr>";
+    
 }
 ?>
 </table>
